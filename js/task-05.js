@@ -15,16 +15,19 @@ const refs = {
   inputEl: document.querySelector("#name-input"),
   spanEl: document.querySelector("#name-output"),
 };
-
+const spanStart = refs.spanEl.textContent;
 // ДОДАВАННЯ СЛУХАЧА ПОДІЇ
 // На елемент refs.inputEl, додається слухач події addEventListener, з параметрами input - ім'я події, onInputChange - зовнішня функція, яка буде викликана при настані події.
 
 refs.inputEl.addEventListener("input", onInputChange);
-// console.log(refs.inputEl);
-// console.log(refs.spanEl);
+console.log(refs.inputEl);
+console.log(refs.spanEl);
 
 // - ЗОВНІШНЯ ФУНКЦІЯ
 function onInputChange(event) {
-  console.log(event.currentTarget.value);
   refs.spanEl.textContent = event.currentTarget.value;
+
+  if (!event.currentTarget.value) {
+    refs.spanEl.textContent = spanStart;
+  }
 }

@@ -28,46 +28,13 @@
 
 // 1) Вибір всіх items та їхня кількість
 
-const numberCategoriesEl = document.querySelectorAll(".item");
-console.log("Number of categories:", numberCategoriesEl.length);
+const categoriesEl = document.querySelectorAll(".item");
+console.log("Number of categories:", categoriesEl.length);
 
-// 2) Вибір "ul id="categories"" доступ до батька (parent)
-
-const allCategoriesEl = document.querySelector("#categories");
-
-// 3) First item - title and number
-// 3.1) вибір першої категорії в "ul id="categories""
-
-const firstCategoryEl = allCategoriesEl.firstElementChild;
-const firstCategoryTitleEl = firstCategoryEl.firstElementChild;
-
-// 3.2) вибір першого child в першій категорії в "ul id="categories"" та назва першої категорії
-
-const titleOfFirstCategoryEl = firstCategoryEl.firstElementChild.textContent;
-console.log("Category: ", titleOfFirstCategoryEl);
-
-// 3.3) Length of first item
-
-const numbersElementsOfFirstCategoryEl = firstCategoryEl.querySelectorAll("li");
-console.log("Elements: ", numbersElementsOfFirstCategoryEl.length);
-
-// 4) Second item - title and number
-
-const secondCategoryEl = firstCategoryEl.nextElementSibling;
-const titleOfSecondCategoryEl = secondCategoryEl.firstElementChild.textContent;
-console.log("Category: ", titleOfSecondCategoryEl);
-const numbersElementsOfSecondCategoryEl =
-  secondCategoryEl.querySelectorAll("li");
-console.log("Elements: ", numbersElementsOfSecondCategoryEl.length);
-
-// 5) Last item - title and number
-
-const lastCategoryEl = allCategoriesEl.lastElementChild;
-const titleOfLastCategoryEl = lastCategoryEl.firstElementChild.textContent;
-console.log("Category: ", titleOfLastCategoryEl);
-
-const numbersElementsOfLastCategoryEl = lastCategoryEl.querySelectorAll("li");
-console.log("Elements: ", numbersElementsOfLastCategoryEl.length);
+categoriesEl.forEach((item) => {
+  console.log(`Category: ${item.firstElementChild.textContent}`);
+  console.log(`Elements: ${item.lastElementChild.children.length}`);
+});
 
 // ---------------------------------------------------------------
 // В результаті, в консолі будуть виведені наступні повідомлення.
